@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap');
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: pink;
+            font-family: 'Baloo 2', cursive;
+            background-image: url('https://img.freepik.com/free-vector/cute-small-love-heart-pattern-wallpaper-textile-fabric-print_1017-49356.jpg?w=1380&t=st=1717321484~exp=1717322084~hmac=0ce4b5d0746a41bd99da0a85c039b020177c44f2f04503dcc823d2eb315c791d');
+            background-size: cover;
+            text-align: center;
+        }
+
+        .label {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(45deg, pink, red);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Adding black outline */
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 24px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Adding black outline */
+        }
+
+        .yes-button {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .no-button {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="label">Can I say "my"? </div>
+    <div class="buttons">
+        <button class="yes-button" id="yes-button">Yes</button>
+        <button class="no-button" id="no-button">No</button>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('no-button');
+        const yesButton = document.getElementById('yes-button');
+
+        yesButton.addEventListener('click', function() {
+            const newWindow = window.open('', '_blank', 'width=600,height=400');
+            newWindow.document.write(`
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Yes GIF</title>
+                    <style>
+                        @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap');
+
+                        body {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh;
+                            margin: 0;
+                            background-color: pink;
+                            font-family: 'Baloo 2', cursive;
+                            background-image: url('https://img.freepik.com/free-photo/cannabis-marijuana-leaf-closeup_1150-15082.jpg?t=st=1718913542~exp=1718917142~hmac=f5e12d070534a03c0768751077ecdbfda9143d0dfab9655b78ff7ce00dcc5f84&w=1480');
+                            background-size: cover;
+                            text-align: center;
+                        }
+
+                        .label {
+                            font-size: 48px;
+                            font-weight: bold;
+                            background: linear-gradient(45deg, pink, red);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            margin-bottom: 20px;
+                            text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white; /* Adding white outline */
+
+                            .no-choice {
+                    color: white; /* Change this color to white */
+                }
+                        }
+
+                        img {
+                            width: 300px;
+                            height: auto;
+                        }
+                    </style>
+                </head>
+                <body>
+                .no-choice {
+                    color: white; /* Change this color to white */
+                }
+                    <div class="label">You have NO choice lol
+                    MY ZAZAAAAAAAAA</div>
+                    <img src="https://media.tenor.com/JhVlbsQoCboAAAAi/cute-dancing.gif" alt="Yes GIF">
+                </body>
+                </html>
+            `);
+        });
+
+        noButton.addEventListener('mouseover', function() {
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.position = 'absolute';
+            noButton.style.left = x + 'px';
+            noButton.style.top = y + 'px';
+        });
+    </script>
+</body>
+</html>
